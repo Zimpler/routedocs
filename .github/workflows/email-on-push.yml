@@ -1,0 +1,16 @@
+name: Send an email on pushes to master
+on:
+  push:
+    branches: [master]
+
+jobs:
+  email-on-push:
+    name: EmailOnPushAction
+    runs-on: ubuntu-latest
+    steps:
+      - name: email-on-push
+        uses: Zimpler/email-on-push@200430
+        env:
+          SMTP_USER: ${{ secrets.MAIL_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          TO: "master-commits@zimpler.com"
