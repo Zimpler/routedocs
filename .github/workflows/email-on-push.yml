@@ -1,7 +1,9 @@
 name: Send an email on pushes to master
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - master
 
 jobs:
   email-on-push:
